@@ -395,7 +395,7 @@ func writeMultipart(writer *multipart.Writer, uptoken, key string, hasKey bool,
 	}
 
 	//extra.Params
-	if extra.Params != nil {
+	if extra!=nil&&extra.Params != nil {
 		for k, v := range extra.Params {
 			if (strings.HasPrefix(k, "x:") || strings.HasPrefix(k, "x-qn-meta-")) && v != "" {
 				err = writer.WriteField(k, v)
